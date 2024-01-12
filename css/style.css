@@ -1,21 +1,18 @@
 .backGround {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    height: 100vh;
     background-position: bottom left;
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: -1;
+    background-image: url(../img/background.png);
+    overflow-y: hidden;
 }
 
 .centered-content {
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* 使容器充滿整個視窗高度 */
+    height: 90vh;
+    text-align: center;
 }
 
 .blockButton {
@@ -29,11 +26,11 @@
 
 .title {
     position: absolute;
-    top: 45%;
-    left: 25%;
+    top:45%;
+    left: 35%;
     transform: translate(-50%, -50%);
     font-family: 'Arial', sans-serif;
-    font-size: 3em;
+    font-size: 5em;
     color: #fff;
     text-align: center;
     text-shadow: 2px 2px 4px #000;
@@ -51,14 +48,14 @@
 }
 
 .container {
-    display: flex;
+    margin: 0;
 }
 
 .answer {
     width: 45vw;
     height: 45vw;
     border-radius: 5rem;
-    background: #878787;
+    background: rgba(255, 0, 0, 0.5);
     margin: 1rem;
     font-family: 'Arial', sans-serif;
     font-size: 5em;
