@@ -10,12 +10,21 @@ const countdownInterval = setInterval( () => {
     const now = new Date().getTime();
     const distance = countToDate - now;
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
 
-    countdownElement.innerHTML = `距離節目開始還有${days}天 ${hours}小時 ${minutes}分 ${seconds}秒`;
+    if (distance < 6000) {
+        document.querySelector(".eve-before").style.display = "none";
+        document.querySelector(".start-lunarNY").style.display = "block";
+
+    } else {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+        countdownElement.innerHTML = `距離節目開始還有${days}天 ${hours}小時 ${minutes}分 ${seconds}秒`;
+    }
+
 
 }, 1000);
+
+

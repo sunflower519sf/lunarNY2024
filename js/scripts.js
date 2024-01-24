@@ -123,7 +123,6 @@ function askError() {
     askCount = 0;
 }
 
-
 function askReplace() {
     asks.forEach(element => {
         element.classList.add('correct-animation');

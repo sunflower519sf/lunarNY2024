@@ -48,11 +48,11 @@
 
 .title {
     position: absolute;
-    top:45%;
-    left: 35%;
+    top:50%;
+    left: 25%;
     transform: translate(-50%, -50%);
     font-family: 'Arial', sans-serif;
-    font-size: 5rem;
+    font-size: 5vw;
     color: #fff;
     text-align: center;
     word-wrap: break-word;
@@ -61,7 +61,7 @@
 
 .ask {
     font-family: 'Arial', sans-serif;
-    font-size: 5rem;
+    font-size: 5vw;
     color: #fff;
     text-align: center;
     word-wrap: break-word;
@@ -73,13 +73,13 @@
 }
 
 .answer {
-    width: 40vw;
-    height: 30vw;
+    width: 30vw;
+    height: 20vw;
     border-radius: 3rem;
     background: rgba(255, 0, 0, 0.5);
     margin: 1rem;
     font-family: 'Arial', sans-serif;
-    font-size: 5em;
+    font-size: 3em;
     color: #fff;
     text-align: center;
     word-wrap: break-word;
@@ -91,14 +91,14 @@
 }
 
 .text-shadow {
-    text-shadow: 5px 5px 5px rgba(30, 30, 30, 1);
+    text-shadow: 5px 5px 5px rgb(30, 30, 30);
 }
 
 
 #startButton {
     position: fixed;
-    top: 50%;
-    right: 100px;
+    top: 55%;
+    right: 30px;
     transform: translateY(-50%);
     background: none;
     border: none;
@@ -106,7 +106,7 @@
 }
 
 #countdown {
-    font-size: 2rem;
+    font-size: 2vw;
     color: #faaaaa;
     position: absolute;
     left: 50%;
@@ -114,3 +114,6 @@
     margin-top: 10px;
     font-weight: bold;
 }
+
+
+
