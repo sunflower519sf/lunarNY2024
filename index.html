@@ -21,18 +21,33 @@
         
     </div>
 
-    <div>
-        <span id="countdown" class="eve-before text-shadow">計算剩餘時間...</span>
-        </div>
+    <div class="eve-before">
+        <span id="countdown" class="text-shadow">計算剩餘時間...</span>
+    </div>
 
-    <div>
+    <div class="eve-before">
         <h1 class="title text-shadow" style="top: 250px;">點擊右方按鈕<br>開始除夕節目</h1>
-        <button id="startButton" class="blockButton" style="top: 300px;">
+        <button id="startButton" class="blockButton" style="top: 250px;">
             <img id="startImage" src="./img/start_button.png" alt="Play" width="auto" height="200" >
         </button>
     </div>
     
-    
+    <div class="nonePage start-eve">
+        <div class="evemv-ground" id="evemv-Ground">
+            <div class="evemv-headline"><h2 id="evemv-Headline">是否要顯示畫面?</h2></div>
+            
+            <div class="evemv-button">
+                <button class="evemv-picture-no" onclick="eveVideoNo()" id="eveVideoNo">不顯示<br>畫面</button>
+                <button class="evemv-picture-yes" onclick="eveVideoYes()" id="eveVideoNo">顯示<br>畫面</button>
+            </div>
+            
+		</div>
+    </div>
+
+
+
+
+
 
 
     <div class="nonePage start-lunarNY">
@@ -42,6 +57,7 @@
     </div>
 
 
+    <audio id="myAudio" src="https://github.com/sunflower519sf/2024new-year/blob/main/audio/audio1.MP3?raw=true" type="audio/mpeg" controls autoplay loop>你的瀏覽器不支援音樂</audio>
 
     <script src="./js/index.js"></script>
 </body>
