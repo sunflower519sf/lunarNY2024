@@ -139,7 +139,12 @@
     left: 10px;
 }
 
-
+.eve-video {
+    width: 80vw;
+    height: 45vw;
+    position: absolute;
+    left: 11vw;
+}
 
 
 
