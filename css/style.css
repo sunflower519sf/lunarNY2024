@@ -22,7 +22,7 @@ body {
     background-position: bottom left;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(../img/background.png);
+    background-image: url(../img/background.jpg);
     overflow-y: hidden;
 }
 
@@ -34,7 +34,7 @@ body {
     background-position: bottom left;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(../img/start-background.png);
+    background-image: url(../img/start-background.jpg);
     overflow-y: hidden;
 }
 
@@ -151,8 +151,8 @@ body {
 }
 
 .eve-video, .NY-video {
-    width: 80vw;
-    height: 45vw;
+    width: 64vw;
+    height: 36vw;
     position: absolute;
     left: 11vw;
 }
