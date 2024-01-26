@@ -10,6 +10,9 @@
     } 
 }
 
+body {
+    overflow: hidden;
+}
 
 .backGround {
     height: 100vh;
@@ -21,6 +24,8 @@
 }
 
 .startBackGround {
+    margin: 0;
+    padding: 0;
     height: 100vh;
     background-position: bottom left;
     background-size: cover;
