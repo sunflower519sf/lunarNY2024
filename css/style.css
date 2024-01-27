@@ -12,6 +12,7 @@
 
 body {
     overflow: hidden;
+    scrollbar-width: none;
 }
 
 .backGround {
@@ -23,7 +24,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(../img/background.jpg);
-    overflow-y: hidden;
 }
 
 .startBackGround {
@@ -35,7 +35,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(../img/start-background.jpg);
-    overflow-y: hidden;
 }
 
 .centered-content {
@@ -154,7 +153,7 @@ body {
     width: 64vw;
     height: 36vw;
     position: absolute;
-    left: 11vw;
+    left: 17vw;
 }
 
 
