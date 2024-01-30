@@ -24,11 +24,11 @@ function NYVideoEnd(event) {
         NYAudio2.play()
         NYAudio2.addEventListener('ended', function() {
             document.querySelectorAll('.NY-ask').forEach(element => {element.style.display = 'none';});
-            window.location.pathname = "/ask.html"
-
+            window.location = "ask.html"
         });
     }
 }
+
 // youtube影片播放控制
 var youtuPlayer;
 function onYouTubePlayerAPIReady(yotuDivID, youtuID, endFunction) {
@@ -37,8 +37,8 @@ function onYouTubePlayerAPIReady(yotuDivID, youtuID, endFunction) {
         // height: '390',
         videoId: youtuID,
         playerVars: {
-            // controls:0,
-            // disablekb:1
+            controls:0,
+            disablekb:1
         },
         events: {
             onReady: onPlayerReady,

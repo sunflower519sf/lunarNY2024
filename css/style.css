@@ -58,7 +58,7 @@ body {
     position: absolute;
     top:50%;
     left: 25%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -15%);
     font-family: 'Arial', sans-serif;
     font-size: 5vw;
     color: #fff;
@@ -67,7 +67,7 @@ body {
 
 }
 
-.ask {
+.ask, .ask-check-jump {
     font-family: 'Arial', sans-serif;
     font-size: 5vw;
     color: #fff;
@@ -80,7 +80,7 @@ body {
     margin: 0;
 }
 
-.answer {
+.answer, .answer-check-jump {
     width: 30vw;
     height: 20vw;
     border-radius: 3rem;
@@ -155,7 +155,6 @@ body {
     position: absolute;
     left: 17vw;
 }
-
 
 
 
