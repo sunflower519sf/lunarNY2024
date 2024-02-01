@@ -2,15 +2,40 @@ const fireworkContainer = document.querySelector('.backGround');
 const audioButton = document.getElementById('startButton');
 const asks = document.querySelectorAll(".answer");
 
-var askAudio1 = document.getElementById('ask-audio1')
+var askAudio1 = document.getElementById('ask-audio1');
+var askmusic = document.getElementById('ask-music');
+let musicEnd = false;
+let askMsgEnd = false;
+
+asdEndMsg = document.getElementById('ask-audio2');
 
 let askCount = 0;
-let errorCheck = false
+let errorCheck = false;
 
-function endPage() {
-    document.querySelectorAll('.pageAsk').forEach(element => {element.style.display = 'none';});
-    document.querySelectorAll('.check-jump').forEach(element => {element.style.display = 'block';});
+function endPage(msgFM) {
+    if (msgFM == "noError") {
+        asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-audio1.MP3?raw=true"
+        asdEndMsg.play();
+    } else if (msgFM == "yesError") {
+        asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-audio1.MP3?raw=true"
+        asdEndMsg.play();
+    }
+
+    asdEndMsg.addEventListener('ended', function() {
+        const jumpEnd = setInterval(() => {
+            if (musicEnd && askMsgEnd) {
+                console.log("等待跳轉")
+                setTimeout(() => {
+                    console.log('時間到 即將跳轉...');
+                    clearInterval(jumpEnd);
+                    window.location = "bless.html";
+                }, 5000);
+            }
+        }, 1000);
+    });
 }
+
+
 
 // youtube影片播放控制
 var youtuPlayer;
@@ -128,7 +153,7 @@ function endChart() {
 
     if (errorCheck){
         const myChart = new Chart(ctxChart, configChart);
-
+        endPage("noError");
     } else {
         document.querySelectorAll('.pageEnd').forEach(element => {element.style.display = 'none';});
         document.querySelectorAll('.endNoError').forEach(element => {element.style.display = 'block';});
@@ -141,8 +166,8 @@ function endChart() {
             explosion: 10
         });
         fireworks.start();
+        endPage("yesError");
     }
-    
 }
 
 
@@ -157,7 +182,7 @@ function askEnd() {
     document.querySelector(".pageAsk").style.display = "none";
     document.querySelector(".pageEnd").style.display = "block";
     document.querySelector(".backGround").style.backgroundImage = "url(../img/background-dark.jpg)";
-    endPage();
+    endChart();
 }
 
 function askError() {
@@ -195,7 +220,11 @@ document.getElementById('startButton').addEventListener('click', function() {
     askAudio1.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-audio1.MP3?raw=true"
     askAudio1.play();
     askAudio1.addEventListener('ended', function() {
-        console.log("123")
+        askmusic.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-music.MP3?raw=true"
+        askmusic.play();
+        askmusic.addEventListener('ended', function() {
+            musicEnd = true
+        });
     });
 
 

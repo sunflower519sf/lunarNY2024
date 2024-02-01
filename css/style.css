@@ -37,6 +37,18 @@ body {
     background-image: url(../img/start-background.jpg);
 }
 
+.blessBackGround {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-position: bottom left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../img/bless-background.jpg);
+}
+
+
 .centered-content {
     flex-direction: column;
     align-items: center;
