@@ -5,7 +5,6 @@ const asks = document.querySelectorAll(".answer");
 var askAudio1 = document.getElementById('ask-audio1');
 var askmusic = document.getElementById('ask-music');
 let musicEnd = false;
-let askMsgEnd = false;
 
 asdEndMsg = document.getElementById('ask-audio2');
 
@@ -13,26 +12,31 @@ let askCount = 0;
 let errorCheck = false;
 
 function endPage(msgFM) {
-    if (msgFM == "noError") {
-        asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-audio1.MP3?raw=true"
-        asdEndMsg.play();
-    } else if (msgFM == "yesError") {
-        asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-audio1.MP3?raw=true"
-        asdEndMsg.play();
-    }
-
-    asdEndMsg.addEventListener('ended', function() {
-        const jumpEnd = setInterval(() => {
-            if (musicEnd && askMsgEnd) {
-                console.log("等待跳轉")
+    const jumpEnd = setInterval(() => {
+        console.log("等待音樂")
+        if (musicEnd) {
+            console.log("等待跳轉")
+            if (msgFM == "noError") {
+                asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-noError.MP3?raw=true";
+                asdEndMsg.play();
+            } else if (msgFM == "yesError") {
+                asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-yesError.MP3?raw=true";
+                asdEndMsg.play();
+            }
+            asdEndMsg.addEventListener('ended', function() {
                 setTimeout(() => {
                     console.log('時間到 即將跳轉...');
                     clearInterval(jumpEnd);
                     window.location = "bless.html";
                 }, 5000);
-            }
-        }, 1000);
-    });
+            });
+        }
+    }, 1000);
+    
+    
+
+
+   
 }
 
 
@@ -153,7 +157,7 @@ function endChart() {
 
     if (errorCheck){
         const myChart = new Chart(ctxChart, configChart);
-        endPage("noError");
+        endPage("yesError");
     } else {
         document.querySelectorAll('.pageEnd').forEach(element => {element.style.display = 'none';});
         document.querySelectorAll('.endNoError').forEach(element => {element.style.display = 'block';});
@@ -166,7 +170,7 @@ function endChart() {
             explosion: 10
         });
         fireworks.start();
-        endPage("yesError");
+        endPage("noError");
     }
 }
 
