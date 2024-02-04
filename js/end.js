@@ -10,7 +10,8 @@ fetch('setting.json')
 .catch(error => console.error('取得資料時出現錯誤:', error));
 
 function showEnd() {
-
+    document.querySelectorAll('.fadeOut').forEach(element => {element.style.display = 'none';});
+    document.querySelector(".show-end").style.display = "block";
 }
 
 
