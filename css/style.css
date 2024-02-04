@@ -10,6 +10,16 @@
     } 
 }
 
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
 body {
     overflow: hidden;
     scrollbar-width: none;
@@ -37,7 +47,7 @@ body {
     background-image: url(../img/start-background.jpg);
 }
 
-.blessBackGround {
+/* .blessBackGround {
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -46,7 +56,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(../img/bless-background.jpg);
-}
+} */
 
 
 .centered-content {
@@ -168,6 +178,38 @@ body {
     left: 17vw;
 }
 
+.word {
+    margin: auto;
+    position: absolute;
+    top: 5vh;
+    left: 3vw;
+    color: white;
+    font: 700 normal 2.5em 'tahoma';
+    white-space: pre-wrap;
+    background-image: linear-gradient(
+        -225deg,
+        #570777 0%,
+        #5824dd 15%,
+        #13c0ff 30%,
+        #72cc0c 50%,
+        #f5ba0b 80%
+    );
+    background-clip: border-box;
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.end-img {
+    width: auto;
+    height: 90vh;
+    position: absolute;
+    top: 50%;
+    right: 3vw;
+    transform: translate(0%, -50%);
+    z-index: -1;
+}
 
 
 #startButton, #startButton-NY {

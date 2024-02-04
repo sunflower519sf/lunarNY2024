@@ -16,6 +16,7 @@ function endPage(msgFM) {
         console.log("等待音樂")
         if (musicEnd) {
             console.log("等待跳轉")
+            clearInterval(jumpEnd);
             if (msgFM == "noError") {
                 asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-noError.MP3?raw=true";
                 asdEndMsg.play();
@@ -26,9 +27,8 @@ function endPage(msgFM) {
             asdEndMsg.addEventListener('ended', function() {
                 setTimeout(() => {
                     console.log('時間到 即將跳轉...');
-                    clearInterval(jumpEnd);
                     window.location = "bless.html";
-                }, 5000);
+                }, 3000);
             });
         }
     }, 1000);
