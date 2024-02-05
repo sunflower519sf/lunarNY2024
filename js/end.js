@@ -2,7 +2,7 @@ var words = '無法讀取資料';
 let index = 0, num = 0, showRun = false;
 const imgPath = "img/end/"
 var music = document.getElementById('music');
-let promptText = '如音樂無正常播放請點擊畫面任意一處或左上方開始'
+let promptText = '如音樂無正常播放請點擊左上方開始'
 var playButton = document.getElementById('playButton');
 const numimg = document.getElementById('end-img')
 
