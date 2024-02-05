@@ -81,10 +81,10 @@ setTimeout(() => {
 }, 3000);
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    document.addEventListener('click', function() {
+    document.addEventListener('touchstart', function() {
         music.play();
     });
-    document.addEventListener('touchstart', function() {
+    document.addEventListener('click', function() {
         music.play();
     });
 });
