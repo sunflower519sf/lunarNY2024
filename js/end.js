@@ -54,10 +54,28 @@ function go(){
     }
 }
 
+function prompt() {
+    const alertWindow = document.createElement('div');
+        alertWindow.textContent = '如音樂無正常播放請點擊畫面任意一處開始';
+        alertWindow.style.position = 'fixed';
+        alertWindow.style.bottom = '10px';
+        alertWindow.style.left = '50%';
+        alertWindow.style.transform = 'translateX(-50%)';
+        alertWindow.style.background = 'rgba(0, 0, 0, 0.5)';
+        alertWindow.style.color = '#fff';
+        alertWindow.style.padding = '10px';
+        alertWindow.style.borderRadius = '5px';
+        alertWindow.style.zIndex = '9999';
+        document.body.appendChild(alertWindow);
+        setTimeout(function() {
+            document.body.removeChild(alertWindow);
+        }, 5000);
+}
 
 setTimeout(() => {
     go();
-    music.play()
+    music.play();
+    prompt();
 }, 3000);
 
 window.addEventListener('DOMContentLoaded', (event) => {
