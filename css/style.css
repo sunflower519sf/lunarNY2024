@@ -26,6 +26,12 @@
 }
 
 
+@keyframes scroll-up {
+    0%   { -webkit-transform: translate(0, 100%); }
+	100% { -webkit-transform: translate(0, -100%); }
+}
+
+
 body {
     overflow: hidden;
     scrollbar-width: none;
@@ -184,7 +190,7 @@ body {
     left: 17vw;
 }
 
-.word {
+.word, .word-text {
     margin: auto;
     position: absolute;
     top: 5vh;
@@ -215,6 +221,13 @@ body {
     right: 3vw;
     transform: translate(0%, -50%);
     z-index: -1;
+}
+
+
+.scroll-up-text span {
+    display: inline-block;
+    text-indent: 0;
+    animation: scroll-up 15s linear infinite;
 }
 
 
