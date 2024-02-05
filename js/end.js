@@ -2,7 +2,9 @@ var words = '無法讀取資料';
 let index = 0, num = 0, showRun = false;
 const imgPath = "img/end/"
 var music = document.getElementById('music');
-let promptText = '如音樂無正常播放請點擊畫面任意一處開始'
+let promptText = '如音樂無正常播放請點擊畫面任意一處或左上方按鈕開始'
+var playButton = document.getElementById('playButton');
+
 
 fetch('setting.json')
 .then(response => response.json())
@@ -17,7 +19,7 @@ function showEnd() {
     setTimeout(() => {
         document.querySelector(".show-end").style.display = "none";
         document.querySelector(".page-end").style.display = "block";
-    }, 60000);
+    }, 65000);
 }
 
 
@@ -85,6 +87,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         music.play();
     });
     document.addEventListener('click', function() {
+        music.play();
+    });
+    playButton.addEventListener('click', function() {
         music.play();
     });
 });

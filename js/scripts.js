@@ -5,33 +5,49 @@ const asks = document.querySelectorAll(".answer");
 var askAudio1 = document.getElementById('ask-audio1');
 var askmusic = document.getElementById('ask-music');
 let musicEnd = false;
+let lastTime = 0;
 
 asdEndMsg = document.getElementById('ask-audio2');
 
 let askCount = 0;
 let errorCheck = false;
 
-function endPage(msgFM) {
+function goToEnd() {
     const jumpEnd = setInterval(() => {
         console.log("等待音樂")
         if (musicEnd) {
             console.log("等待跳轉")
             clearInterval(jumpEnd);
-            if (msgFM == "noError") {
-                asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-noError.MP3?raw=true";
-                asdEndMsg.play();
-            } else if (msgFM == "yesError") {
-                asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-yesError.MP3?raw=true";
-                asdEndMsg.play();
-            }
-            asdEndMsg.addEventListener('ended', function() {
-                setTimeout(() => {
-                    console.log('時間到 即將跳轉...');
-                    window.location = "bless.html";
-                }, 3000);
-            });
+            window.location = "end.html";
         }
     }, 1000);
+}
+
+function endBefore(){
+    document.querySelectorAll('.now-ask').forEach(element => {element.style.display = 'none';});
+    askmusic.currentTime = lastTime;
+    askmusic.play();
+    document.querySelectorAll('.now-bless').forEach(element => {element.style.display = 'block';});
+}
+
+function endPage(msgFM) {
+    askmusic.pause();
+    lastTime = askmusic.currentTime;
+    if (msgFM == "noError") {
+        asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-noError.MP3?raw=true";
+        asdEndMsg.play();
+    } else if (msgFM == "yesError") {
+        asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-yesError.MP3?raw=true";
+        asdEndMsg.play();
+    }
+    asdEndMsg.addEventListener('ended', function() {
+        setTimeout(() => {
+            console.log('時間到 即將跳轉...');
+            endBefore()
+        }, 3000);
+    });
+        
+    
     
     
 

@@ -193,8 +193,8 @@ body {
 .word, .word-text {
     margin: auto;
     position: absolute;
-    top: 5vh;
-    left: 3vw;
+    top: 7vh;
+    left: 5vw;
     color: white;
     font: 700 normal 7vh 'tahoma';
     white-space: pre-wrap;
@@ -249,5 +249,17 @@ body {
     font-weight: bold;
 }
 
-
+#playButton {
+    position: fixed;
+    top: 3px;
+    left: 3px;
+    z-index: 99;
+    padding: 0.1vh 0.1vw;
+    background-color: #0022ff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 2vw;
+}
 
