@@ -27,7 +27,7 @@
 
 
 @keyframes scroll-up {
-    0%   { -webkit-transform: translate(0, 100%); }
+    0%   { -webkit-transform: translate(0, 30%); }
 	100% { -webkit-transform: translate(0, -100%); }
 }
 
@@ -227,7 +227,7 @@ body {
 .scroll-up-text span {
     display: inline-block;
     text-indent: 0;
-    animation: scroll-up 15s linear infinite;
+    animation: scroll-up 60s linear;
 }
 
 
