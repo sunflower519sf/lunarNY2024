@@ -4,7 +4,7 @@ const imgPath = "img/end/"
 var music = document.getElementById('music');
 let promptText = '如音樂無正常播放請點擊畫面任意一處或左上方開始'
 var playButton = document.getElementById('playButton');
-
+const numimg = document.getElementById('end-img')
 
 fetch('setting.json')
 .then(response => response.json())
@@ -47,14 +47,14 @@ function go(){
     if (!showRun) {
         words = "";
         document.querySelector('.word').textContent = "";
-        document.getElementById('end-img').src = imgPath + data.end[num][0]
-        setTimeout(() => {
+        numimg.src = imgPath + data.end[num][0]
+        numimg.onload = function() {
             document.querySelectorAll('.fadeOut').forEach(element => {element.style.animation = 'none';});
             for(j=1;j < data.end[num].length;j++) {
                 words += data.end[num][j] + "\n";
             }
             wordShow()
-        }, 1000);
+        };
     }
 }
 
