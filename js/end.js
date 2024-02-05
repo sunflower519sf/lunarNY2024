@@ -29,7 +29,6 @@ function wordShow() {
         index++;
         (index < words.length) ? wordShow() : setTimeout(wordDel, 10000);
     }, 100);
-    music.play()
 }
 
 function wordDel() {
@@ -52,7 +51,6 @@ function go(){
             words += data.end[num][j] + "\n";
         }
         setTimeout(wordShow, 1000)
-        music.play()
     }
 }
 
@@ -61,3 +59,9 @@ setTimeout(() => {
     go();
     music.play()
 }, 3000);
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    document.addEventListener('click', function() {
+        music.play();
+    });
+});
