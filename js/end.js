@@ -2,7 +2,7 @@ var words = '無法讀取資料';
 let index = 0, num = 0, showRun = false;
 const imgPath = "img/end/"
 var music = document.getElementById('music');
-
+let promptText = '如音樂無正常播放請點擊畫面任意一處開始'
 
 fetch('setting.json')
 .then(response => response.json())
@@ -46,17 +46,19 @@ function go(){
         words = "";
         document.querySelector('.word').textContent = "";
         document.getElementById('end-img').src = imgPath + data.end[num][0]
-        document.querySelectorAll('.fadeOut').forEach(element => {element.style.animation = 'none';});
-        for(j=1;j < data.end[num].length;j++) {
-            words += data.end[num][j] + "\n";
-        }
-        setTimeout(wordShow, 1000)
+        setTimeout(() => {
+            document.querySelectorAll('.fadeOut').forEach(element => {element.style.animation = 'none';});
+            for(j=1;j < data.end[num].length;j++) {
+                words += data.end[num][j] + "\n";
+            }
+            wordShow()
+        }, 1000);
     }
 }
 
 function prompt() {
     const alertWindow = document.createElement('div');
-        alertWindow.textContent = '如音樂無正常播放請點擊畫面任意一處開始';
+        alertWindow.textContent = promptText;
         alertWindow.style.position = 'fixed';
         alertWindow.style.bottom = '10px';
         alertWindow.style.left = '50%';
@@ -82,4 +84,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     document.addEventListener('click', function() {
         music.play();
     });
+    document.addEventListener('touchstart', function() {
+        music.play();
+    });
+});
+
+music.addEventListener('ended', function() {
+    promptText = "點擊螢幕可以重複聆聽音樂"
+    prompt();
 });
