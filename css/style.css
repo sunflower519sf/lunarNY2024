@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
-
 @keyframes correctAnimation {
     0% {
         transform: scale(0);
@@ -30,9 +28,14 @@
 
 @keyframes scroll-up {
     0%   { -webkit-transform: translate(0, 30%); }
-	100% { -webkit-transform: translate(0, -100%); }
+	100% { -webkit-transform: translate(0, -130%); }
 }
 
+@keyframes textAnimation {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
 
 body {
     overflow: hidden;
@@ -229,9 +232,24 @@ body {
 .scroll-up-text span {
     display: inline-block;
     text-indent: 0;
-    animation: scroll-up 60s linear;
+    animation: scroll-up 100s linear;
 }
 
+
+.now-bless {
+    margin: 0px;
+}
+
+.bless-text {
+    position: absolute;
+    width: 100%;
+    display: inline-block;
+    font-family: "Raleway", sans-serif;
+    font-size: 15vh;
+    text-align: center;
+    user-select: none;
+    color: white;
+}
 
 #startButton, #startButton-NY {
     position: fixed;
@@ -251,7 +269,7 @@ body {
     font-weight: bold;
 }
 
-#playButton {
+#playButton, #go-to-end {
     position: fixed;
     top: 3px;
     left: 3px;
@@ -272,13 +290,5 @@ body {
     height: 80pt;
     top: 0;
     bottom: 0;
-}
-
-#bless-text1, #bless-text2 {
-    position: absolute;
-    width: 100%;
-    display: inline-block;
-    font-size: 80pt;
-    text-align: center;
-    user-select: none;
+    filter: url(#threshold) blur(0.6px);
 }

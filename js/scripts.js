@@ -12,33 +12,38 @@ asdEndMsg = document.getElementById('ask-audio2');
 let askCount = 0;
 let errorCheck = false;
 
+
 const elts = {
-    text1: document.getElementById("text1"),
-    text2: document.getElementById("text2")
+    text1: document.getElementById("bless-text1"),
+    text2: document.getElementById("bless-text2")
 };
+
 const texts = [
-    "If", "You", "Like", "It", "Please", "Give", "a Love", ":)", "by @DotOnion"
+    "", "", "新的一年 在這個新的開始", "希望您能夠放下煩惱", "不要為了小事傷心", "走出困境的唯一方式是面對它", "我們要勇敢面對生活種的挑戰和困難", "相信自己可以克服任何障礙", "在這美好的日子", "請接受我最真誠的新年祝福", "龍年行大運 福自照家門", "好運連連 事業有成", "幸福安康夢想成真", "一切都能如您所願", "一切都能讓您開心"
 ];
-const morphTime = 1;
+
+const morphTime = 7;
 const cooldownTime = 0.25;
 
-
-let textIndex = texts.length - 1;
+let textIndex = 0; // 從0開始
 let time = new Date();
 let morph = 0;
 let cooldown = cooldownTime;
 
-elts.text1.textContent = texts[textIndex % texts.length];
-elts.text2.textContent = texts[(textIndex + 1) % texts.length];
-
 
 function goToEnd() {
+    document.querySelectorAll('.now-bless').forEach(element => {element.style.display = 'none';});
     const jumpEnd = setInterval(() => {
         console.log("等待音樂")
         if (musicEnd) {
             console.log("等待跳轉")
             clearInterval(jumpEnd);
             window.location = "end.html";
+        } else {
+            document.querySelectorAll('.wait-music').forEach(element => {element.style.display = 'block';});
+            document.getElementById('go-to-end').addEventListener('click', function() {
+                window.location = "end.html";
+            });
         }
     }, 1000);
 }
@@ -60,15 +65,19 @@ function doMorph() {
 }
 
 function setMorph(fraction) {
+    // 設置顯示文字的span
+    const currentText = texts[textIndex % texts.length];
+    const nextText = texts[(textIndex + 1) % texts.length];
+    elts.text1.textContent = currentText;
+    elts.text2.textContent = nextText;
+
+    // 設置文字透明度和模糊效果
     elts.text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
     elts.text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
 
     fraction = 1 - fraction;
     elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
     elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
-
-    elts.text1.textContent = texts[textIndex % texts.length];
-    elts.text2.textContent = texts[(textIndex + 1) % texts.length];
 }
 
 function doCooldown() {
@@ -97,26 +106,28 @@ function animate() {
         }
 
         doMorph();
+
+        if (textIndex >= texts.length) {
+            // 顯示完所有文本後執行endFunction()
+            goToEnd()
+        }
     } else {
         doCooldown();
     }
 }
-function blessText() {
-    
-
-    animate();
-}
-
-
 
 
 function endBefore(){
     document.querySelectorAll('.now-ask').forEach(element => {element.style.display = 'none';});
-    document.querySelectorAll('.now-bless').forEach(element => {element.style.display = 'block';});
     askmusic.currentTime = lastTime;
     askmusic.play();
-    blessText()
+    setTimeout(() => {
+        document.querySelectorAll('.now-bless').forEach(element => {element.style.display = 'block';});
+        animate()
+    }, 3000);
+    
 }
+
 
 function endPage(msgFM) {
     askmusic.pause();
@@ -368,4 +379,5 @@ document.getElementById('check-jump').addEventListener('click', function() {
     endChart();
 
 });
+
 
