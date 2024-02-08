@@ -132,19 +132,27 @@ function endBefore(){
 function endPage(msgFM) {
     askmusic.pause();
     lastTime = askmusic.currentTime;
-    if (msgFM == "noError") {
-        asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-noError.MP3?raw=true";
-        asdEndMsg.play();
-    } else if (msgFM == "yesError") {
-        asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-yesError.MP3?raw=true";
-        asdEndMsg.play();
-    }
-    asdEndMsg.addEventListener('ended', function() {
+    try {
+        if (msgFM == "noError") {
+            asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-noError.MP3?raw=true";
+            asdEndMsg.play();
+        } else if (msgFM == "yesError") {
+            asdEndMsg.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-yesError.MP3?raw=true";
+            asdEndMsg.play();
+        }
+        asdEndMsg.addEventListener('ended', function() {
+            setTimeout(() => {
+                console.log('時間到 即將跳轉...');
+                endBefore()
+            }, 3000);
+        });
+    } catch (error) {
+        console.log(`發生錯誤${error}`)
         setTimeout(() => {
             console.log('時間到 即將跳轉...');
             endBefore()
         }, 3000);
-    });
+    }
 }
 
 
@@ -322,21 +330,34 @@ function askReplace() {
         askEnd();
     }
 }
-
+askmusic
 
 document.getElementById('startButton').addEventListener('click', function() {
     document.querySelector(".pageStart").style.display = "none";
     document.querySelector(".pageAsk").style.display = "block";
-
-    askAudio1.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-audio1.MP3?raw=true"
-    askAudio1.play();
-    askAudio1.addEventListener('ended', function() {
-        askmusic.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-music.MP3?raw=true"
-        askmusic.play();
-        askmusic.addEventListener('ended', function() {
-            musicEnd = true
+    try {
+        askAudio1.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-audio1.MP3?raw=true"
+        askAudio1.play();
+        askAudio1.addEventListener('ended', function() {
+            askmusic.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-music.MP3?raw=true"
+            askmusic.play();
+            askmusic.addEventListener('ended', function() {
+                musicEnd = true
+            });
         });
-    });
+    } catch (error) {
+        console.log(`發生錯誤${error}`)
+        try {
+            askmusic.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/ask-music.MP3?raw=true"
+            askmusic.play();
+            askmusic.addEventListener('ended', function() {
+                musicEnd = true
+            });
+        } catch (error) {
+            console.log(`發生錯誤${error}`)
+            musicEnd = true
+        }
+    }
 
 
     fetch('setting.json')
