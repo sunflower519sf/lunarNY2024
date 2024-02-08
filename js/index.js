@@ -20,18 +20,14 @@ function NYVideoEnd(event) {
     if(event.data === 0) {          
         document.querySelectorAll('.NY-video').forEach(element => {element.style.display = 'none';});
         document.querySelectorAll('.NY-ask').forEach(element => {element.style.display = 'block';});
-        try {
-            NYAudio2.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/audio2.MP3?raw=true";
-            NYAudio2.play();
-            NYAudio2.addEventListener('ended', function() {
-                document.querySelectorAll('.NY-ask').forEach(element => {element.style.display = 'none';});
-                window.location = "ask.html";
-            });
-        } catch (error) {
-            console.log(`發生錯誤${error}`)
+        
+        NYAudio2.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/audio2.MP3?raw=true";
+        NYAudio2.play();
+        NYAudio2.addEventListener('ended', function() {
             document.querySelectorAll('.NY-ask').forEach(element => {element.style.display = 'none';});
             window.location = "ask.html";
-        }
+        });
+        
     }
 }
 
@@ -134,23 +130,17 @@ document.getElementById('startButton').addEventListener('click', function() {
 document.getElementById('startButton-NY').addEventListener('click', function() {
     document.querySelectorAll('.lunarNY-before').forEach(element => {element.style.display = 'none';});
     document.querySelectorAll('.lunarNY-after').forEach(element => {element.style.display = 'block';});
-    try {
-        NYAudio.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/audio1.MP3?raw=true";
-        NYAudio.play();
-        
-        NYAudio.addEventListener('ended', function() {
-            document.querySelectorAll('.lunarNY-after').forEach(element => {element.style.display = 'none';});
-            document.querySelectorAll('.start-lunarNY').forEach(element => {element.style.display = 'none';});
-            document.querySelectorAll('.NY-video').forEach(element => {element.style.display = 'block';});
-            onYouTubePlayerAPIReady("NY-video", "WfP-E_7Uoco", NYVideoEnd);
-        });
-    } catch (error) {
-        console.log(`發生錯誤${error}`)
+    
+    NYAudio.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/audio1.MP3?raw=true";
+    NYAudio.play();
+    
+    NYAudio.addEventListener('ended', function() {
         document.querySelectorAll('.lunarNY-after').forEach(element => {element.style.display = 'none';});
         document.querySelectorAll('.start-lunarNY').forEach(element => {element.style.display = 'none';});
         document.querySelectorAll('.NY-video').forEach(element => {element.style.display = 'block';});
         onYouTubePlayerAPIReady("NY-video", "WfP-E_7Uoco", NYVideoEnd);
-    }
+    });
+    
 
 });
 
