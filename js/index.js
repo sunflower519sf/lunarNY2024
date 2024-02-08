@@ -2,11 +2,12 @@ const countdownElement = document.getElementById('countdown');
 
 
 // const countToDate = new Date("Feb 10, 2024 0:0:0").getTime();
-const countToDate = new Date("Dec 31, 2023 14:8:0").getTime();
+const countToDate = new Date("Dec 31, 2023 0:0:0").getTime();
 var eveAudio = document.getElementById('eve-audio');
 var NYAudio = document.getElementById('NY-audio');
 var NYAudio2 = document.getElementById('NY-audio2');
 
+let setcount = false
 
 function eveVideoEnd(event) {
     if(event.data === 0) {          
@@ -130,7 +131,17 @@ document.getElementById('startButton-NY').addEventListener('click', function() {
     document.querySelectorAll('.lunarNY-after').forEach(element => {element.style.display = 'block';});
     NYAudio.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/audio1.MP3?raw=true";
     NYAudio.play();
+    setcount = false
+    setTimeout(() => {
+        if (!setcount) {
+            document.querySelectorAll('.lunarNY-after').forEach(element => {element.style.display = 'none';});
+            document.querySelectorAll('.start-lunarNY').forEach(element => {element.style.display = 'none';});
+            document.querySelectorAll('.NY-video').forEach(element => {element.style.display = 'block';});
+            onYouTubePlayerAPIReady("NY-video", "WfP-E_7Uoco", NYVideoEnd);
+        }
+    }, 10000);
     NYAudio.addEventListener('ended', function() {
+        setcount = true
         document.querySelectorAll('.lunarNY-after').forEach(element => {element.style.display = 'none';});
         document.querySelectorAll('.start-lunarNY').forEach(element => {element.style.display = 'none';});
         document.querySelectorAll('.NY-video').forEach(element => {element.style.display = 'block';});

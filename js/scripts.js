@@ -121,8 +121,8 @@ function endBefore(){
     document.querySelectorAll('.now-ask').forEach(element => {element.style.display = 'none';});
     askmusic.currentTime = lastTime;
     askmusic.play();
+    document.querySelectorAll('.now-bless').forEach(element => {element.style.display = 'block';});
     setTimeout(() => {
-        document.querySelectorAll('.now-bless').forEach(element => {element.style.display = 'block';});
         animate()
     }, 3000);
     
