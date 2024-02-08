@@ -21,7 +21,7 @@ function NYVideoEnd(event) {
         document.querySelectorAll('.NY-video').forEach(element => {element.style.display = 'none';});
         document.querySelectorAll('.NY-ask').forEach(element => {element.style.display = 'block';});
         
-        NYAudio2.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/audio2.MP3?raw=true";
+        NYAudio2.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/audio2.WAV?raw=true";
         NYAudio2.play();
         NYAudio2.addEventListener('ended', function() {
             document.querySelectorAll('.NY-ask').forEach(element => {element.style.display = 'none';});
@@ -68,7 +68,7 @@ function eveVideoYes() {
 }
 
 function eveVideoNo() {
-    eveAudio.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/eve-video.MP3?raw=true";
+    eveAudio.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/eve-video.WAV?raw=true";
     document.querySelectorAll('.start-eve').forEach(element => {element.style.display = 'none';});
     eveAudio.play();
     eveAudio.addEventListener('ended', function() {
@@ -131,7 +131,7 @@ document.getElementById('startButton-NY').addEventListener('click', function() {
     document.querySelectorAll('.lunarNY-before').forEach(element => {element.style.display = 'none';});
     document.querySelectorAll('.lunarNY-after').forEach(element => {element.style.display = 'block';});
     
-    NYAudio.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/audio1.MP3?raw=true";
+    NYAudio.src = "https://github.com/sunflower519sf/lunarNY2024/blob/main/audio/audio1.WAV?raw=true";
     NYAudio.play();
     
     NYAudio.addEventListener('ended', function() {
